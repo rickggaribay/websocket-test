@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Server Event Sample</title>
+    <style type="text/css">
+        body {
+            font-family: Verdana;
+            font-size: 12px;
+        }
+
+        input.btn
+        {
+            color: #808080;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js" type="text/javascript"></script>
+    <script>
+
+        $(function () {
+            "use strict";
+
+            if (Modernizr.websockets) {
+                $("#messages").append("WebSockets is supported. Click the Connect button.");
+            }
+
+            if (!window.WebSocket && window.MozWebSocket) {
+                window.WebSocket = window.MozWebSocket;
+            }
+
+
+        $('#connect').click(function () {
+
+            var count;
+            var connection;
+    
+				var host = "ws://localhost:3000/"
+
+                connection = Connect(host);
+
+                connection.onopen = function () {
+                    $(".btn").css("color", "green");
+                }
+
+                connection.onmessage = function (message) {
+					var data = message.data;
+
+                    $("<li/>").html(data).appendTo($('#messages'));
+                };
+
+        });
+
+    });
+
+        function Connect(host) {
+
+            return new WebSocket(host);
+        }
+
+        
+</script>
+</head>
+<body>
+    <h2>Server Event Sample</h2>
+    <form>
+        <input type="button" id="connect" value="Connect" class="btn" />
+    </form>
+
+    <ul id="messages">
+    </ul>
+    
+</body>
+</html>

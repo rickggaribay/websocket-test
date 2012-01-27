@@ -1,0 +1,12 @@
+{
+  "name":"websocket-test",
+  "version":"0.0.1",
+  "directories":{},
+  "engines" : {
+      "node" : ">=0.6.7",
+      "npm" : ">=1.0" 
+  },
+  "dependencies":{
+    "websocket.io":"latest"
+  }
+}
