@@ -6,29 +6,22 @@ Simple websocket test for the heck of it.
 
  * Download the repo
 
-		 
-     git clone git@github.com:amokan/websocket-test.git
-     
-
+				git clone git@github.com:amokan/websocket-test.git
+				
  * Navigate into the directory
- 
-		 
-     cd websocket-test 
-		 
+				
+				cd websocket-test
 
  * Install dependencies
- 
-		 
-     npm install 
-     
 
+				npm install 
+     
  * Startup the server
- 
 		 
-     node server.js
-     
+				node server.js
 
- * Open the Default.html file and click 'Connect' 
+ * Open the Default.html file and click 'Connect'
+ 
  * Party!
 
 ## Dependencies (what works for me)
